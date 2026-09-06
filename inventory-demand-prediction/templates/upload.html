@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block page_title %}Upload dataset{% endblock %}
+{% block page_subtitle %}Replace the working dataset with your own sales history CSV{% endblock %}
+
+{% block content %}
+<div class="grid-2">
+  <div class="panel">
+    <div class="panel-header">
+      <div>
+        <h3>Upload CSV</h3>
+        <div class="panel-desc">The file must contain every required column listed on the right</div>
+      </div>
+    </div>
+    <form method="POST" enctype="multipart/form-data">
+      <div class="upload-dropzone">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" style="margin-bottom:8px;"><path d="M12 3v12m0-12 4 4m-4-4-4 4"/><path d="M4 15v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></svg>
+        <div>Drop your <strong>.csv</strong> file here or choose a file below</div>
+        <input type="file" name="dataset_file" accept=".csv" required>
+      </div>
+      <div style="margin-top:16px;">
+        <button type="submit" class="btn btn-primary" style="width:auto; padding:10px 22px;">Upload &amp; validate</button>
+      </div>
+    </form>
+    <p style="font-size:12.5px; color:var(--text-muted); margin-top:14px;">
+      After uploading, retrain the model from the command line so predictions reflect the new data:
+      <br><code>python ml/train_model.py</code>
+    </p>
+  </div>
+
+  <div class="panel">
+    <div class="panel-header">
+      <div>
+        <h3>Required columns</h3>
+        <div class="panel-desc">Every one of these must be present, spelled exactly as shown</div>
+      </div>
+    </div>
+    <ul class="col-list">
+      {% for col in required_columns %}
+      <li><code>{{ col }}</code></li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+{% endblock %}

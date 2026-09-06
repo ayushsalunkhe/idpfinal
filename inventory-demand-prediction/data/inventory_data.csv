@@ -1,0 +1,121 @@
+product_id,product_name,category,date,current_stock,units_sold,price,discount,supplier_lead_time,supplier_rating,season,promotion,previous_month_sales,previous_3_month_average,previous_6_month_average
+SKU001,Basmati Rice 5kg,Staples,2025-01-01,40,113,114.3,12.96,8,4.5,Winter,1,100,100.0,100.0
+SKU001,Basmati Rice 5kg,Staples,2025-02-01,13,98,107.84,0.29,3,4.0,Winter,0,113,113.0,113.0
+SKU001,Basmati Rice 5kg,Staples,2025-03-01,3,91,98.35,0.19,7,3.6,Summer,0,98,105.5,105.5
+SKU001,Basmati Rice 5kg,Staples,2025-04-01,46,106,87.24,9.61,3,3.7,Summer,1,91,100.67,100.67
+SKU001,Basmati Rice 5kg,Staples,2025-05-01,28,124,99.11,8.56,6,5.0,Summer,1,106,98.33,102.0
+SKU001,Basmati Rice 5kg,Staples,2025-06-01,11,116,102.86,16.79,10,4.1,Monsoon,1,124,107.0,106.4
+SKU002,Wheat Flour 5kg,Staples,2025-01-01,4,72,75.48,3.76,7,4.1,Winter,0,80,80.0,80.0
+SKU002,Wheat Flour 5kg,Staples,2025-02-01,15,73,77.03,1.69,7,3.3,Winter,0,72,72.0,72.0
+SKU002,Wheat Flour 5kg,Staples,2025-03-01,9,87,91.91,15.82,7,4.8,Summer,1,73,72.5,72.5
+SKU002,Wheat Flour 5kg,Staples,2025-04-01,8,75,87.07,2.86,8,4.4,Summer,0,87,77.33,77.33
+SKU002,Wheat Flour 5kg,Staples,2025-05-01,23,78,76.19,0.67,9,4.0,Summer,0,75,78.33,76.75
+SKU002,Wheat Flour 5kg,Staples,2025-06-01,32,84,69.79,2.85,5,3.8,Monsoon,0,78,80.0,77.0
+SKU003,Sugar 1kg,Staples,2025-01-01,31,70,65.45,3.66,6,4.8,Winter,0,70,70.0,70.0
+SKU003,Sugar 1kg,Staples,2025-02-01,16,60,69.93,3.69,8,3.4,Winter,0,70,70.0,70.0
+SKU003,Sugar 1kg,Staples,2025-03-01,10,66,72.36,3.7,10,3.3,Summer,0,60,65.0,65.0
+SKU003,Sugar 1kg,Staples,2025-04-01,24,79,66.37,9.32,7,4.4,Summer,1,66,65.33,65.33
+SKU003,Sugar 1kg,Staples,2025-05-01,1,64,78.78,1.88,7,4.8,Summer,0,79,68.33,68.75
+SKU003,Sugar 1kg,Staples,2025-06-01,26,84,65.52,0.86,9,4.5,Monsoon,0,64,69.67,67.8
+SKU004,Sunflower Oil 1L,Staples,2025-01-01,6,66,68.04,0.28,8,4.6,Winter,0,60,60.0,60.0
+SKU004,Sunflower Oil 1L,Staples,2025-02-01,21,59,56.5,0.51,9,4.6,Winter,0,66,66.0,66.0
+SKU004,Sunflower Oil 1L,Staples,2025-03-01,14,56,63.19,1.97,10,3.7,Summer,0,59,62.5,62.5
+SKU004,Sunflower Oil 1L,Staples,2025-04-01,17,63,54.85,1.34,4,3.6,Summer,0,56,60.33,60.33
+SKU004,Sunflower Oil 1L,Staples,2025-05-01,17,52,62.49,2.6,8,4.3,Summer,0,63,59.33,61.0
+SKU004,Sunflower Oil 1L,Staples,2025-06-01,3,50,62.55,2.86,4,3.6,Monsoon,0,52,57.0,59.2
+SKU005,Tea 250g,Beverages,2025-01-01,22,49,53.4,3.87,4,4.8,Winter,0,50,50.0,50.0
+SKU005,Tea 250g,Beverages,2025-02-01,22,50,48.32,1.65,9,4.5,Winter,0,49,49.0,49.0
+SKU005,Tea 250g,Beverages,2025-03-01,3,58,46.71,10.21,9,4.8,Summer,1,50,49.5,49.5
+SKU005,Tea 250g,Beverages,2025-04-01,6,62,43.65,15.06,6,4.8,Summer,1,58,52.33,52.33
+SKU005,Tea 250g,Beverages,2025-05-01,24,58,56.83,8.3,5,4.3,Summer,1,62,56.67,54.75
+SKU005,Tea 250g,Beverages,2025-06-01,19,49,51.12,3.51,9,4.8,Monsoon,0,58,59.33,55.4
+SKU006,Coffee 200g,Beverages,2025-01-01,12,37,44.42,17.57,10,3.5,Winter,1,40,40.0,40.0
+SKU006,Coffee 200g,Beverages,2025-02-01,6,45,41.29,11.61,6,3.4,Winter,1,37,37.0,37.0
+SKU006,Coffee 200g,Beverages,2025-03-01,16,37,42.97,18.59,8,3.8,Summer,1,45,41.0,41.0
+SKU006,Coffee 200g,Beverages,2025-04-01,4,42,40.9,1.47,7,3.4,Summer,0,37,39.67,39.67
+SKU006,Coffee 200g,Beverages,2025-05-01,13,39,40.49,1.84,7,4.2,Summer,0,42,41.33,40.25
+SKU006,Coffee 200g,Beverages,2025-06-01,6,39,44.6,2.73,3,4.3,Monsoon,0,39,39.33,40.0
+SKU007,Marie Biscuits,Snacks,2025-01-01,16,61,65.36,3.16,4,4.4,Winter,0,75,75.0,75.0
+SKU007,Marie Biscuits,Snacks,2025-02-01,13,73,63.94,1.02,10,4.7,Winter,0,61,61.0,61.0
+SKU007,Marie Biscuits,Snacks,2025-03-01,1,67,86.25,2.39,8,4.5,Summer,0,73,67.0,67.0
+SKU007,Marie Biscuits,Snacks,2025-04-01,28,98,81.57,12.38,10,4.6,Summer,1,67,67.0,67.0
+SKU007,Marie Biscuits,Snacks,2025-05-01,25,72,67.09,2.27,3,3.8,Summer,0,98,79.33,74.75
+SKU007,Marie Biscuits,Snacks,2025-06-01,12,70,75.31,0.35,8,3.5,Monsoon,0,72,79.0,74.2
+SKU008,Noodles Pack,Snacks,2025-01-01,26,84,77.02,2.48,5,3.4,Winter,0,90,90.0,90.0
+SKU008,Noodles Pack,Snacks,2025-02-01,0,101,76.91,13.2,3,4.6,Winter,1,84,84.0,84.0
+SKU008,Noodles Pack,Snacks,2025-03-01,3,81,100.29,2.92,10,4.7,Summer,0,101,92.5,92.5
+SKU008,Noodles Pack,Snacks,2025-04-01,6,95,82.98,17.71,6,4.3,Summer,1,81,88.67,88.67
+SKU008,Noodles Pack,Snacks,2025-05-01,12,95,81.04,0.37,9,3.6,Summer,0,95,92.33,90.25
+SKU008,Noodles Pack,Snacks,2025-06-01,19,91,78.37,2.8,6,4.5,Monsoon,0,95,90.33,91.2
+SKU009,Pasta 500g,Staples,2025-01-01,20,57,57.99,2.6,10,4.6,Winter,0,55,55.0,55.0
+SKU009,Pasta 500g,Staples,2025-02-01,6,57,54.77,15.34,9,4.9,Winter,1,57,57.0,57.0
+SKU009,Pasta 500g,Staples,2025-03-01,3,63,57.65,8.04,9,3.7,Summer,1,57,57.0,57.0
+SKU009,Pasta 500g,Staples,2025-04-01,5,61,53.42,3.2,4,3.4,Summer,0,63,59.0,59.0
+SKU009,Pasta 500g,Staples,2025-05-01,18,57,55.56,1.63,9,3.7,Summer,0,61,60.33,59.5
+SKU009,Pasta 500g,Staples,2025-06-01,9,58,46.75,0.83,8,4.0,Monsoon,0,57,60.33,59.0
+SKU010,Salt 1kg,Staples,2025-01-01,4,63,66.75,3.29,5,3.6,Winter,0,65,65.0,65.0
+SKU010,Salt 1kg,Staples,2025-02-01,31,70,59.1,10.87,7,4.0,Winter,1,63,63.0,63.0
+SKU010,Salt 1kg,Staples,2025-03-01,10,63,65.17,3.35,8,4.1,Summer,0,70,66.5,66.5
+SKU010,Salt 1kg,Staples,2025-04-01,18,68,69.15,1.64,3,4.2,Summer,0,63,65.33,65.33
+SKU010,Salt 1kg,Staples,2025-05-01,16,67,61.3,14.05,4,4.4,Summer,1,68,67.0,66.0
+SKU010,Salt 1kg,Staples,2025-06-01,7,68,66.55,0.07,8,3.7,Monsoon,0,67,66.0,66.2
+SKU011,Toor Dal 1kg,Staples,2025-01-01,127,71,76.86,3.28,3,4.5,Winter,0,70,70.0,70.0
+SKU011,Toor Dal 1kg,Staples,2025-02-01,132,67,72.9,0.2,10,4.0,Winter,0,71,71.0,71.0
+SKU011,Toor Dal 1kg,Staples,2025-03-01,146,71,64.9,0.4,5,3.9,Summer,0,67,69.0,69.0
+SKU011,Toor Dal 1kg,Staples,2025-04-01,122,65,78.7,3.13,5,4.3,Summer,0,71,69.67,69.67
+SKU011,Toor Dal 1kg,Staples,2025-05-01,107,76,72.69,17.19,9,4.1,Summer,1,65,67.67,68.5
+SKU011,Toor Dal 1kg,Staples,2025-06-01,152,76,60.35,0.35,5,5.0,Monsoon,0,76,70.67,70.0
+SKU012,Moong Dal 1kg,Staples,2025-01-01,113,61,62.93,0.1,3,3.8,Winter,0,60,60.0,60.0
+SKU012,Moong Dal 1kg,Staples,2025-02-01,115,58,52.83,0.88,3,4.1,Winter,0,61,61.0,61.0
+SKU012,Moong Dal 1kg,Staples,2025-03-01,91,64,57.0,0.07,6,3.4,Summer,0,58,59.5,59.5
+SKU012,Moong Dal 1kg,Staples,2025-04-01,100,67,53.27,0.54,3,3.4,Summer,0,64,61.0,61.0
+SKU012,Moong Dal 1kg,Staples,2025-05-01,99,60,52.02,1.87,9,4.7,Summer,0,67,63.0,62.5
+SKU012,Moong Dal 1kg,Staples,2025-06-01,116,61,62.8,2.09,9,4.0,Monsoon,0,60,63.67,62.0
+SKU013,Bathing Soap,Personal Care,2025-01-01,122,70,73.78,2.51,7,4.8,Winter,0,65,65.0,65.0
+SKU013,Bathing Soap,Personal Care,2025-02-01,104,61,71.46,2.36,6,3.3,Winter,0,70,70.0,70.0
+SKU013,Bathing Soap,Personal Care,2025-03-01,122,69,68.05,15.24,5,5.0,Summer,1,61,65.5,65.5
+SKU013,Bathing Soap,Personal Care,2025-04-01,131,71,67.97,8.34,9,4.8,Summer,1,69,66.67,66.67
+SKU013,Bathing Soap,Personal Care,2025-05-01,105,64,73.42,2.06,10,4.6,Summer,0,71,67.0,67.75
+SKU013,Bathing Soap,Personal Care,2025-06-01,118,68,73.42,3.84,3,4.0,Monsoon,0,64,68.0,67.0
+SKU014,Shampoo 200ml,Personal Care,2025-01-01,93,46,48.18,2.27,9,3.8,Winter,0,45,45.0,45.0
+SKU014,Shampoo 200ml,Personal Care,2025-02-01,65,44,49.94,1.61,6,4.2,Winter,0,46,46.0,46.0
+SKU014,Shampoo 200ml,Personal Care,2025-03-01,85,49,42.77,16.51,6,4.8,Summer,1,44,45.0,45.0
+SKU014,Shampoo 200ml,Personal Care,2025-04-01,63,44,41.51,3.44,7,4.5,Summer,0,49,46.33,46.33
+SKU014,Shampoo 200ml,Personal Care,2025-05-01,67,41,49.97,2.62,8,3.9,Summer,0,44,45.67,45.75
+SKU014,Shampoo 200ml,Personal Care,2025-06-01,89,46,45.14,3.15,4,4.5,Monsoon,0,41,44.67,44.8
+SKU015,Toothpaste 150g,Personal Care,2025-01-01,71,47,49.75,1.49,8,3.5,Winter,0,50,50.0,50.0
+SKU015,Toothpaste 150g,Personal Care,2025-02-01,79,50,46.93,0.03,5,4.2,Winter,0,47,47.0,47.0
+SKU015,Toothpaste 150g,Personal Care,2025-03-01,70,49,52.9,2.44,8,4.1,Summer,0,50,48.5,48.5
+SKU015,Toothpaste 150g,Personal Care,2025-04-01,123,61,45.91,14.67,5,3.9,Summer,1,49,48.67,48.67
+SKU015,Toothpaste 150g,Personal Care,2025-05-01,105,51,46.04,3.7,10,4.9,Summer,0,61,53.33,51.75
+SKU015,Toothpaste 150g,Personal Care,2025-06-01,80,56,48.4,12.38,7,3.3,Monsoon,1,51,53.67,51.6
+SKU016,Detergent 1kg,Household,2025-01-01,119,57,59.27,2.48,8,4.1,Winter,0,55,55.0,55.0
+SKU016,Detergent 1kg,Household,2025-02-01,112,64,49.64,14.34,6,4.4,Winter,1,57,57.0,57.0
+SKU016,Detergent 1kg,Household,2025-03-01,107,54,55.87,3.57,7,4.2,Summer,0,64,60.5,60.5
+SKU016,Detergent 1kg,Household,2025-04-01,89,54,51.38,1.62,6,4.9,Summer,0,54,58.33,58.33
+SKU016,Detergent 1kg,Household,2025-05-01,97,63,54.47,17.81,9,4.5,Summer,1,54,57.33,57.25
+SKU016,Detergent 1kg,Household,2025-06-01,111,54,59.41,0.2,10,4.8,Monsoon,0,63,57.0,58.4
+SKU017,Dishwash Liquid,Household,2025-01-01,67,42,43.8,2.92,8,4.8,Winter,0,45,45.0,45.0
+SKU017,Dishwash Liquid,Household,2025-02-01,68,44,42.24,1.38,10,3.6,Winter,0,42,42.0,42.0
+SKU017,Dishwash Liquid,Household,2025-03-01,82,47,40.23,0.23,7,3.6,Summer,0,44,43.0,43.0
+SKU017,Dishwash Liquid,Household,2025-04-01,86,42,47.2,1.81,3,4.2,Summer,0,47,44.33,44.33
+SKU017,Dishwash Liquid,Household,2025-05-01,103,50,42.81,1.96,6,4.3,Summer,0,42,44.33,43.75
+SKU017,Dishwash Liquid,Household,2025-06-01,65,39,51.07,3.77,6,4.4,Monsoon,0,50,46.33,45.0
+SKU018,Fruit Juice 1L,Beverages,2025-01-01,106,53,43.53,16.08,8,4.7,Winter,1,50,50.0,50.0
+SKU018,Fruit Juice 1L,Beverages,2025-02-01,83,51,44.86,3.03,5,4.8,Winter,0,53,53.0,53.0
+SKU018,Fruit Juice 1L,Beverages,2025-03-01,83,44,54.73,2.13,4,4.8,Summer,0,51,52.0,52.0
+SKU018,Fruit Juice 1L,Beverages,2025-04-01,92,50,43.77,2.05,8,4.7,Summer,0,44,49.33,49.33
+SKU018,Fruit Juice 1L,Beverages,2025-05-01,76,47,50.43,1.88,9,3.8,Summer,0,50,48.33,49.5
+SKU018,Fruit Juice 1L,Beverages,2025-06-01,83,45,44.04,3.25,3,4.4,Monsoon,0,47,47.0,49.0
+SKU019,Corn Flakes 500g,Snacks,2025-01-01,46,32,41.68,2.29,9,3.5,Winter,0,40,40.0,40.0
+SKU019,Corn Flakes 500g,Snacks,2025-02-01,58,38,40.14,2.67,5,3.6,Winter,0,32,32.0,32.0
+SKU019,Corn Flakes 500g,Snacks,2025-03-01,60,42,45.71,12.46,9,3.8,Summer,1,38,35.0,35.0
+SKU019,Corn Flakes 500g,Snacks,2025-04-01,80,39,39.05,2.66,9,4.6,Summer,0,42,37.33,37.33
+SKU019,Corn Flakes 500g,Snacks,2025-05-01,91,44,40.51,0.25,10,4.2,Summer,0,39,39.67,37.75
+SKU019,Corn Flakes 500g,Snacks,2025-06-01,82,49,37.19,10.72,4,4.6,Monsoon,1,44,41.67,39.0
+SKU020,Mineral Water 1L,Beverages,2025-01-01,174,115,119.67,1.82,6,3.9,Winter,0,110,110.0,110.0
+SKU020,Mineral Water 1L,Beverages,2025-02-01,168,113,113.72,0.71,5,3.5,Winter,0,115,115.0,115.0
+SKU020,Mineral Water 1L,Beverages,2025-03-01,197,97,117.0,3.05,4,4.9,Summer,0,113,114.0,114.0
+SKU020,Mineral Water 1L,Beverages,2025-04-01,242,126,101.45,2.27,6,4.0,Summer,0,97,108.33,108.33
+SKU020,Mineral Water 1L,Beverages,2025-05-01,193,92,108.98,2.07,7,4.7,Summer,0,126,112.0,112.75
+SKU020,Mineral Water 1L,Beverages,2025-06-01,165,115,112.91,3.5,5,4.6,Monsoon,0,92,105.0,108.6

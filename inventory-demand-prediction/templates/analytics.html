@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% block page_title %}Analytics{% endblock %}
+{% block page_subtitle %}Model performance, feature importance, and demand trends{% endblock %}
+
+{% block content %}
+<div class="panel">
+  <div class="panel-header">
+    <div>
+      <h3>Model comparison</h3>
+      <div class="panel-desc">All models were evaluated on a time-based (not random) held-out test set</div>
+    </div>
+    {% if meta.best_model_name %}<span class="badge badge-low">Best: {{ meta.best_model_name }}</span>{% endif %}
+  </div>
+
+  {% if comparison %}
+  <table>
+    <thead><tr><th>Model</th><th>MAE</th><th>MSE</th><th>RMSE</th><th>R² Score</th><th>MAPE %</th></tr></thead>
+    <tbody>
+      {% for row in comparison %}
+      <tr {{ 'style="font-weight:600;"' if row.Model == meta.best_model_name else '' }}>
+        <td>{{ row.Model }}{% if row.Model == meta.best_model_name %} <span class="badge badge-low" style="margin-left:6px;">Selected</span>{% endif %}</td>
+        <td>{{ row.MAE }}</td>
+        <td>{{ row.MSE }}</td>
+        <td>{{ row.RMSE }}</td>
+        <td>{{ row.R2_Score }}</td>
+        <td>{{ row['MAPE_%'] }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <div class="explain-box" style="margin-top:16px;">{{ explanation }}</div>
+  {% else %}
+  <div class="empty-state">
+    <h3>No trained model found</h3>
+    <p>Run <code>python ml/train_model.py</code> to train the models and populate this page.</p>
+  </div>
+  {% endif %}
+</div>
+
+<div class="grid-2">
+  <div class="panel">
+    <div class="panel-header"><div><h3>Model performance</h3><div class="panel-desc">RMSE &amp; R² across all trained models</div></div></div>
+    <img class="chart-img" src="{{ url_for('static', filename='images/model_comparison.png') }}" alt="Model comparison chart">
+  </div>
+  <div class="panel">
+    <div class="panel-header"><div><h3>Actual vs predicted demand</h3><div class="panel-desc">Best model, sampled test-set points</div></div></div>
+    <img class="chart-img" src="{{ url_for('static', filename='images/actual_vs_predicted.png') }}" alt="Actual vs predicted demand chart">
+  </div>
+</div>
+
+<div class="grid-2">
+  <div class="panel">
+    <div class="panel-header"><div><h3>Feature importance</h3><div class="panel-desc">Which inputs drive the demand forecast most</div></div></div>
+    <img class="chart-img" src="{{ url_for('static', filename='images/feature_importance.png') }}" alt="Feature importance chart">
+  </div>
+  <div class="panel">
+    <div class="panel-header"><div><h3>Top products by demand</h3><div class="panel-desc">Total historical units sold</div></div></div>
+    <img class="chart-img" src="{{ url_for('static', filename='images/product_wise_demand.png') }}" alt="Product-wise demand chart">
+  </div>
+</div>
+
+<div class="panel">
+  <div class="panel-header">
+    <div>
+      <h3>Monthly sales trend</h3>
+      <div class="panel-desc">Interactive — hover to inspect a month</div>
+    </div>
+  </div>
+  <canvas id="monthlyTrendChart" height="90" data-label="Units sold"></canvas>
+</div>
+
+<div class="grid-2">
+  <div class="panel">
+    <div class="panel-header"><div><h3>Demand by category</h3><div class="panel-desc">Total units sold per category</div></div></div>
+    <canvas id="categoryChart" height="180" data-label="Units sold"></canvas>
+  </div>
+  <div class="panel">
+    <div class="panel-header"><div><h3>Product performance</h3><div class="panel-desc">Top 10 products by demand</div></div></div>
+    <canvas id="productChart" height="180" data-label="Units sold"></canvas>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  renderChartFromApi("monthlyTrendChart", "{{ url_for('api_monthly_trend') }}", "line", "#23478F");
+  renderChartFromApi("categoryChart", "{{ url_for('api_category_performance') }}", "bar", "#B8790F");
+  renderChartFromApi("productChart", "{{ url_for('api_product_demand') }}", "bar", "#1C6B44");
+</script>
+{% endblock %}

@@ -1,0 +1,7 @@
+{
+  "best_model_name": "Random Forest",
+  "uses_scaled_input": false,
+  "trained_rows": 240,
+  "tested_rows": 90,
+  "cutoff_date": "2025-09-01"
+}

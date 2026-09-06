@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create account · StockSense</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<div class="auth-page">
+  <div class="auth-side">
+    <div class="content">
+      <div class="logo-mark">SS</div>
+      <h1>Set up your inventory intelligence workspace.</h1>
+      <p>Create an account to upload your sales data, generate demand forecasts, and track reorder recommendations over time.</p>
+      <div class="auth-stats">
+        <div><strong>5</strong><span>Regression models</span></div>
+        <div><strong>Auto</strong><span>Reorder point calc</span></div>
+        <div><strong>3-tier</strong><span>Stockout risk</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="auth-form-panel">
+    <div class="auth-form-box">
+      <h2>Create your account</h2>
+      <div class="subtitle">Takes less than a minute</div>
+
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          {% for category, message in messages %}
+            <div class="flash flash-{{ category }}">{{ message }}</div>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+
+      <form method="POST">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" required autofocus>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" required minlength="6">
+        </div>
+        <div class="form-group">
+          <label for="confirm_password">Confirm password</label>
+          <input type="password" id="confirm_password" name="confirm_password" required minlength="6">
+        </div>
+        <button type="submit" class="btn btn-primary">Create account</button>
+      </form>
+      <div class="auth-switch">Already have an account? <a href="{{ url_for('login') }}">Sign in</a></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

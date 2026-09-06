@@ -1,0 +1,130 @@
+{% extends "base.html" %}
+{% block page_title %}Prediction{% endblock %}
+{% block page_subtitle %}Forecast demand and get a reorder recommendation for a product{% endblock %}
+
+{% block content %}
+<div class="panel">
+  <div class="panel-header">
+    <div>
+      <h3>Select a product</h3>
+      <div class="panel-desc">Prediction uses the most recent recorded data for the selected product</div>
+    </div>
+  </div>
+  <form method="POST">
+    <div class="field-row">
+      <div class="form-group" style="margin-bottom:0;">
+        <label for="product_id">Product</label>
+        <select name="product_id" id="product_id" required>
+          <option value="" disabled {{ 'selected' if not result }}>Choose a product…</option>
+          {% for p in products %}
+          <option value="{{ p.product_id }}" {{ 'selected' if result and result.product_id==p.product_id }}>
+            {{ p.product_name }} ({{ p.category }})
+          </option>
+          {% endfor %}
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary" style="width:auto; padding:11px 22px;">Predict demand</button>
+      <button type="submit" name="predict_all" value="1" formnovalidate class="btn btn-secondary" style="width:auto; margin-left:12px; padding:11px 22px;">Predict all products</button>
+    </div>
+  </form>
+</div>
+
+{% if result %}
+<div class="panel">
+  <div class="panel-header">
+    <div>
+      <h3>{{ result.product_name }} <span style="color:var(--text-muted); font-weight:500;">— {{ result.category }}</span></h3>
+      <div class="panel-desc">Based on data as of {{ result.as_of_date }}</div>
+    </div>
+    {% if result.stockout_risk == 'HIGH RISK' %}<span class="badge badge-high">High risk</span>
+    {% elif result.stockout_risk == 'MEDIUM RISK' %}<span class="badge badge-medium">Medium risk</span>
+    {% else %}<span class="badge badge-low">Low risk</span>{% endif %}
+  </div>
+
+  <div class="result-grid">
+    <div class="result-tile">
+      <div class="label">Predicted demand (next day)</div>
+      <div class="value">{{ result.predicted_demand }}</div>
+    </div>
+    <div class="result-tile">
+      <div class="label">Current stock</div>
+      <div class="value">{{ result.current_stock }}</div>
+    </div>
+    <div class="result-tile">
+      <div class="label">Supplier lead time</div>
+      <div class="value">{{ result.supplier_lead_time }}d</div>
+    </div>
+    <div class="result-tile">
+      <div class="label">Safety stock</div>
+      <div class="value">{{ result.safety_stock }}</div>
+    </div>
+    <div class="result-tile">
+      <div class="label">Reorder point</div>
+      <div class="value">{{ result.reorder_point }}</div>
+    </div>
+    <div class="result-tile">
+      <div class="label">Recommended reorder qty</div>
+      <div class="value">{{ result.recommended_reorder_qty }}</div>
+    </div>
+  </div>
+
+  <div class="status-banner {{ 'reorder' if result.status == 'REORDER REQUIRED' else 'ok' }}">
+    <span>{{ result.status }}</span>
+    <span style="font-weight:500; font-size:13px;">
+      {% if result.status == 'REORDER REQUIRED' %}
+        Order {{ result.recommended_reorder_qty }} units to stay above the reorder point.
+      {% else %}
+        Current stock comfortably covers predicted demand through the next delivery cycle.
+      {% endif %}
+    </span>
+  </div>
+</div>
+{% endif %}
+
+{% if results %}
+<div class="panel">
+  <div class="panel-header">
+    <div>
+      <h3>All product predictions</h3>
+      <div class="panel-desc">Generated from the latest uploaded dataset</div>
+    </div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Category</th>
+        <th>Pred. Demand</th>
+        <th>Stock</th>
+        <th>Reorder Pt.</th>
+        <th>Qty</th>
+        <th>Risk</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in results %}
+      <tr>
+        <td>{{ item.product_name }}</td>
+        <td>{{ item.category }}</td>
+        <td>{{ item.predicted_demand }}</td>
+        <td>{{ item.current_stock }}</td>
+        <td>{{ item.reorder_point }}</td>
+        <td>{{ item.recommended_reorder_qty }}</td>
+        <td>
+          {% if item.stockout_risk == 'HIGH RISK' %}<span class="badge badge-high">High</span>
+          {% elif item.stockout_risk == 'MEDIUM RISK' %}<span class="badge badge-medium">Medium</span>
+          {% else %}<span class="badge badge-low">Low</span>{% endif %}
+        </td>
+        <td>
+          {% if item.status == 'REORDER REQUIRED' %}<span class="badge badge-reorder">Reorder</span>
+          {% else %}<span class="badge badge-ok">Sufficient</span>{% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endif %}
+{% endblock %}

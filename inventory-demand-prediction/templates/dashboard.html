@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+{% block page_title %}Dashboard{% endblock %}
+{% block page_subtitle %}A snapshot of demand, stock health, and recent predictions{% endblock %}
+
+{% block content %}
+<div class="kpi-grid">
+  <div class="kpi-card" style="--kpi-color:#23478F">
+    <div class="kpi-label">Total products tracked</div>
+    <div class="kpi-value">{{ total_products }}</div>
+    <div class="kpi-note">Across all categories</div>
+  </div>
+  <div class="kpi-card" style="--kpi-color:#AE2E24">
+    <div class="kpi-label">Products needing reorder</div>
+    <div class="kpi-value">{{ stats.reorder_needed }}</div>
+    <div class="kpi-note">From saved predictions</div>
+  </div>
+  <div class="kpi-card" style="--kpi-color:#B8790F">
+    <div class="kpi-label">High stockout risk</div>
+    <div class="kpi-value">{{ stats.high_risk }}</div>
+    <div class="kpi-note">Predicted demand exceeds lead-time cover</div>
+  </div>
+  <div class="kpi-card" style="--kpi-color:#1C6B44">
+    <div class="kpi-label">Avg. predicted demand</div>
+    <div class="kpi-value">{{ stats.avg_predicted_demand }}</div>
+    <div class="kpi-note">Units per prediction, all-time</div>
+  </div>
+</div>
+
+<div class="grid-2">
+  <div class="panel">
+    <div class="panel-header">
+      <div>
+        <h3>Inventory snapshot</h3>
+        <div class="panel-desc">Latest known stock levels across the current dataset</div>
+      </div>
+    </div>
+    <div class="result-grid" style="grid-template-columns: 1fr 1fr;">
+      <div class="result-tile">
+        <div class="label">Total units in stock</div>
+        <div class="value">{{ total_inventory }}</div>
+      </div>
+      <div class="result-tile">
+        <div class="label">Average selling price</div>
+        <div class="value">₹{{ avg_price }}</div>
+      </div>
+    </div>
+    <div style="margin-top:16px;">
+      <a href="{{ url_for('prediction_page') }}" class="btn btn-primary" style="width:auto; padding:10px 18px;">Generate a prediction</a>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-header">
+      <div>
+        <h3>Total predictions logged</h3>
+        <div class="panel-desc">All predictions saved to history so far</div>
+      </div>
+    </div>
+    <div class="result-tile" style="max-width:220px;">
+      <div class="label">Predictions made</div>
+      <div class="value">{{ stats.total_predictions }}</div>
+    </div>
+    <div style="margin-top:16px;">
+      <a href="{{ url_for('history') }}" class="btn btn-secondary" style="width:auto; padding:10px 18px;">View full history</a>
+    </div>
+  </div>
+</div>
+
+<div class="panel">
+  <div class="panel-header">
+    <div>
+      <h3>Recent predictions</h3>
+      <div class="panel-desc">Latest reorder recommendations across all users</div>
+    </div>
+  </div>
+  {% if recent %}
+  <table>
+    <thead>
+      <tr><th>Date</th><th>Product</th><th>Category</th><th>Predicted Demand</th><th>Stock</th><th>Risk</th><th>Status</th></tr>
+    </thead>
+    <tbody>
+      {% for r in recent %}
+      <tr>
+        <td>{{ r['created_at'][:16] }}</td>
+        <td>{{ r['product_name'] }}</td>
+        <td>{{ r['category'] }}</td>
+        <td>{{ r['predicted_demand'] }}</td>
+        <td>{{ r['current_stock'] }}</td>
+        <td>
+          {% if r['stockout_risk'] == 'HIGH RISK' %}<span class="badge badge-high">High</span>
+          {% elif r['stockout_risk'] == 'MEDIUM RISK' %}<span class="badge badge-medium">Medium</span>
+          {% else %}<span class="badge badge-low">Low</span>{% endif %}
+        </td>
+        <td>
+          {% if r['status'] == 'REORDER REQUIRED' %}<span class="badge badge-reorder">Reorder required</span>
+          {% else %}<span class="badge badge-ok">Sufficient</span>{% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <div class="empty-state">
+    <h3>No predictions yet</h3>
+    <p>Head to the Prediction page and select a product to generate your first demand forecast.</p>
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

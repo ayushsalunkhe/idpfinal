@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block page_title %}History &amp; Reports{% endblock %}
+{% block page_subtitle %}Every prediction you've generated, downloadable as CSV or PDF{% endblock %}
+
+{% block content %}
+<div class="panel">
+  <div class="panel-header">
+    <div>
+      <h3>Your prediction history</h3>
+      <div class="panel-desc">Most recent first</div>
+    </div>
+    <footer class="report-links">
+      <form action="{{ url_for('clear_history') }}" method="post" style="display:inline;">
+        <button type="submit" class="btn btn-danger" style="width:auto; padding:9px 16px;">Clear History</button>
+      </form>
+      <a href="{{ url_for('download_csv') }}" class="btn btn-secondary" style="width:auto; padding:9px 16px;">Download CSV</a>
+      <a href="{{ url_for('download_pdf') }}" class="btn btn-secondary" style="width:auto; padding:9px 16px;">Download PDF</a>
+    </footer>
+  </div>
+
+  {% if rows %}
+  <table>
+    <thead>
+      <tr>
+        <th>Date</th><th>Product</th><th>Category</th><th>Pred. Demand</th><th>Stock</th>
+        <th>Safety Stock</th><th>Reorder Pt.</th><th>Reorder Qty</th><th>Risk</th><th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for r in rows %}
+      <tr>
+        <td>{{ r['created_at'][:16] }}</td>
+        <td>{{ r['product_name'] }}</td>
+        <td>{{ r['category'] }}</td>
+        <td>{{ r['predicted_demand'] }}</td>
+        <td>{{ r['current_stock'] }}</td>
+        <td>{{ r['safety_stock'] }}</td>
+        <td>{{ r['reorder_point'] }}</td>
+        <td>{{ r['recommended_reorder_qty'] }}</td>
+        <td>
+          {% if r['stockout_risk'] == 'HIGH RISK' %}<span class="badge badge-high">High</span>
+          {% elif r['stockout_risk'] == 'MEDIUM RISK' %}<span class="badge badge-medium">Medium</span>
+          {% else %}<span class="badge badge-low">Low</span>{% endif %}
+        </td>
+        <td>
+          {% if r['status'] == 'REORDER REQUIRED' %}<span class="badge badge-reorder">Reorder</span>
+          {% else %}<span class="badge badge-ok">Sufficient</span>{% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <div class="empty-state">
+    <h3>No predictions yet</h3>
+    <p>Generate your first forecast from the Prediction page — it will show up here automatically.</p>
+  </div>
+  {% endif %}
+</div>
+{% endblock %}
